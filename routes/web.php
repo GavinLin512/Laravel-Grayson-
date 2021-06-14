@@ -1,5 +1,6 @@
 <?php
 
+use Facade\Ignition\Exceptions\ViewException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -26,20 +27,43 @@ Route::get('/index', function () {
     return view('front.index', ['name' => 'Grayson']);
 });
 
-Route::get('/news', function () {
-    //php變數
-    $discount = 0.75;
-    $total = 500 * $discount;
-    $news = DB::table('news')->get();
-    //同console.log，dump and die，丟出資料並停止的意思
-    // dd($news);
-    return view('front.news', ['name' => 'Grayson', 'price' => $total],compact('news'));
-});
+Route::get('/news', 'FrontController@news');
+Route::get('/news/{id}', 'FrontController@newsDetail');
+Route::get('/product', 'FrontController@product');
+Route::get('/product/{id}', 'FrontController@productDetail');
+Route::get('/front', 'FrontController@layout');
+Route::get('/contactus', 'FrontController@contactus');
+Route::post('/contactus/send', 'FrontController@contactusSend');
+Route::get('/change', 'FrontController@change');
 
-Route::get('/product', function () {
-    return view('front.product');
-});
 
-Route::get('/front', function () {
-    return view('layouts.front');
-});
+Route::get('/admin', 'AdminController@admin');
+
+
+Route::get('/admin/contactus', 'ContactusController@index');
+Route::get('/admin/contactus/edit/{id}', 'ContactusController@edit');
+Route::post('/admin/contactus/update/{id}', 'ContactusController@update');
+//get也可以直接刪除
+Route::delete('/admin/contactus/delete/{id}', 'ContactusController@delete');
+
+
+Route::get('/admin/product', 'ProductController@index');
+Route::get('/admin/product/edit/{id}', 'ProductController@edit');
+Route::post('/admin/product/update/{id}', 'ProductController@update');
+Route::delete('/admin/product/delete/{id}', 'ProductController@delete');
+Route::get('/admin/product/new', 'ProductController@new');
+Route::post('/admin/product/new/send', 'ProductController@newSend');
+
+
+
+
+
+
+
+
+
+
+
+
+
+

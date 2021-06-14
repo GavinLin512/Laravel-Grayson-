@@ -16,12 +16,19 @@
 <body>
     <nav>
         <div class="logo"></div>
-        <div class="nav-btn">
-            <a href="{{ asset('/news') }}" class="btn">news</a>
-            <a href="{{ asset('/product') }}" class="btn">product</a>
-            <a href="{{ asset('/index') }}" class="btn">backtop</a>
+        <div class="nav-btn-group">
+            <a href="{{ asset('/news') }}" class="nav-btn">news</a>
+            <a href="{{ asset('/product') }}" class="nav-btn">product</a>
+            <a href="{{ asset('/contactus') }}" class="nav-btn">contactus</a>
         </div>
     </nav>
+
+    @if (Session::has('messenge'))
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('messenge') }}
+        </div>
+    @endif
+
 
     @yield('content')
 
@@ -35,7 +42,7 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
 
-    <script src="/js/js.js" ></script>
+    <script src="/js/js.js"></script>
 
 </body>
 

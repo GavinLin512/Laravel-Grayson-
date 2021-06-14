@@ -21,19 +21,23 @@ nav{
     margin: 10px 0;
 }
 
-.nav-btn{
+.nav-btn-group{
     display: flex;
 }
 
-.btn{
+.nav-btn{
     width: 100px;
     height: 80px;
     background-color: lightcoral;
     margin: 10px 0;
     cursor: pointer;
 }
-.btn:nth-child(2){
+.nav-btn:nth-child(2){
     margin: 10px 20px;
+}
+
+.nav-btn:hover{
+    background-color: lightsalmon;
 }
 
 .bgimg-1 {
@@ -49,15 +53,6 @@ nav{
     height: 400px;
     position: relative;
     text-align: center;
-}
-
-#block2 {
-
-}
-
-#block3 {
-
-
 }
 
 .para {
@@ -108,3 +103,4 @@ nav{
     background-color: tan;
     color: black;
 }
+

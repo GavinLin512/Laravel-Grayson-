@@ -1,5 +1,7 @@
 @extends('layouts.front')
 
+@section('title', '最新消息')
+
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 @endsection
@@ -22,6 +24,7 @@
                 <p class="card-text">
                     {{ $item ->content }}
                 </p>
+                <a href="{{ asset('/news') }}/{{ $item->id }}">查看更多</a>
             </div>
         </div>
     </div>
@@ -29,4 +32,3 @@
 
 </div>
 @endsection
-p
