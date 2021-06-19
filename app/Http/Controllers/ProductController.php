@@ -51,10 +51,13 @@ class ProductController extends Controller
         # code...
         return view('admin.product.new');
     }
-
+    // request會抓到相對應的name
+    // dd($request->all()) 會抓出所有的資料
     public function newSend(Request $request)
     {
         # code...
+        // 較為複雜的寫法
+        // img如果不能為空，檢查一下model有沒有寫到
         Product::create([
             'name' => $request ->name,
             'img' => $request ->img,

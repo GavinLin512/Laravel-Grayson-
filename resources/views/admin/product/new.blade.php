@@ -48,7 +48,7 @@
         </div>
         <div class="form-group">
           <label for="inputAddress">產品折扣</label>
-          <input type="number" class="form-control" id="inputAddress" name="discount" required="required" min="0.1" max="1" step="0.05" title="請填入介於0.1~1之間的折扣數字">
+          <input type="number" class="form-control" id="inputAddress" name="discount" required="required" min="0.1" max="1" step="0.01" title="請填入介於0.1~1之間的折扣數字">
         </div>
         <div class="form-group">
             <label for="content">產品描述</label>

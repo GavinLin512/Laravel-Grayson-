@@ -47,7 +47,8 @@
                         <form style="display: inline-block" action="{{ asset('/admin/product/delete') }}/{{ $item ->id }}" method="post">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn badge-danger btn-sm">刪除</button>
+                            {{-- 新增 class 讓每個按鈕都有作用 --}}
+                            <button type="submit" class="btn badge-danger btn-sm btn-delete">刪除</button>
                         </form>
                     </td>
                 </tr>
@@ -74,6 +75,19 @@
                 "ordering": false,
             });
         });
-
+        // 防呆機制
+        $('.btn-delete').click(function (e) {
+            // 阻止預設事件動作
+            e.preventDefault();
+            // 用modal做一樣意思
+            var yes = confirm('確定刪除該筆資料？');
+            if (yes) {
+                // 用 jQuery 送表單
+                $('#form-delete').submit();
+            }
+            // else {
+            //     alert('你已取消該操作！');
+            // }
+        })
     </script>
 @endsection
